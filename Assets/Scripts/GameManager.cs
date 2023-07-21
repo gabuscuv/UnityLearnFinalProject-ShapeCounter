@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         groundBehaviour = GameObject.Find("Ground").GetComponent<IGroundBehaviour>();
         Randomzing();
 
-        //groundBehaviour.OnFinishGame.AddListener(GameOver);
+        groundBehaviour.OnFinishGame.AddListener(GameOver);
     }
 
     // Update is called once per frame

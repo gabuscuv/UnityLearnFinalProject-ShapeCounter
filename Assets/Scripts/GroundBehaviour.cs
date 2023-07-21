@@ -7,7 +7,9 @@ using UnityEngine.Events;
 public class GroundBehaviour : MonoBehaviour,IGroundBehaviour
 {
 
-    //public UnityEvent OnFinishGame;
+    protected UnityEvent FinishGame = new UnityEvent();
+
+    public UnityEvent OnFinishGame { get { return FinishGame; } }
 
     List<string> allowlist;
 
@@ -32,7 +34,7 @@ public class GroundBehaviour : MonoBehaviour,IGroundBehaviour
         //Debug.Log("Testing2");
         if (!allowlist.Contains(collider.gameObject.name))
         {
-            //OnFinishGame.Invoke(this);
+            FinishGame.Invoke();
         }
 
         Destroy(collider.gameObject);
